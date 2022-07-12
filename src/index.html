@@ -2,12 +2,65 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Tarjeta de crédito válida</title>
+    <meta name="description" content="Ropa para damas, casual y elegante">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Mochiy+Pop+P+One&family=Mulish:wght@500;700&family=Oswald:wght@200&family=Quicksand:wght@700&family=Smokum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
+    <title>Tarjeta de crédito válida</title>
   </head>
   <body>
-    <header></header>
-    <main></main>
+    <main class="main-content">
+      <header class="header">
+          <div class="content-elegant-font">
+              <h1 class=elegant-font>empoweredWomanClothes</h1>
+          </div>
+          <div class="content-nav-barr">
+              <nav class="nav-barr">
+                  <button class="btn-nav">Home</button>
+                  <button class="btn-nav">Productos</button>
+                  <button class="btn-nav">Blog</button>
+              </nav>
+          </div>
+      </header>
+      <section class="all-catalogs">
+          <section class="catalog-clothes">
+              <h3 class="tittle-shop">Ropa</h3>
+              <div class="content-img-catalog-clothes">
+                  <figure class="fig-img-clothes"><img class="img-clothes" src="./img/vestido.jpg" alt="Vestido flores"><figcaption class="price-img-clothes">Precio: 50$</figcaption></figure>
+                  <figure class="fig-img-clothes"><img class="img-clothes" src="./img/Jeans.jpg" alt="Jeans"><figcaption class="price-img-clothes">Precio: 20$</figcaption></figure>
+                  <figure class="fig-img-clothes"><img class="img-clothes" src="./img/conjustos.jpg" alt="Conjunto"><figcaption class="price-img-clothes">Precio: 55$</figcaption></figure>
+              </div>
+          </section>
+  
+          <section class="catalog-shoes">
+              <h3 class="tittle-shop">Calzados</h3>
+              <div class="content-img-catalog-shoes">
+                  <figure class="fig-img-shoes"><img class="img-shoes" src="./img/botas.jpg" alt="Botas"><figcaption class="price-img-shoes">Precio: 30$</figcaption></figure>
+                  <figure class="fig-img-shoes"><img class="img-shoes" src="./img/tacones.jpg" alt="Tacones"><figcaption class="price-img-shoes">Precio: 35$</figcaption></figure>
+                  <figure class="fig-img-shoes"><img class="img-shoes" src="./img/tenis.jpg" alt="Tenis"><figcaption class="price-img-shoes">Precio: 20$</figcaption></figure>
+              <!-- </div> -->
+          </section>
+      </section>
+  
+      <form action="" class="validate-card" id="validate-card-id">
+              <h3 class="tittle-shop">Validar tarjeta</h3>
+              <div class="validate-card-data">
+                  <label for="tdc-name" class="labe-validate-data">Ingrese nombre del titular: <input class="input" type="text" name="validate" id="tdc-name"></label>
+                  <label for="tdc" class="labe-validate-data">Ingrese número de tarjeta: <input class="input" type="number" name="validate" id="tdc"></label>
+                  <label for="tdc-cod-val" class="labe-validate-data">Código de validación de la tarjeta: <input class="input" type="number" name="validate" id="tdc-cod-val"></label>
+                  <label for="tdc-date" class="labe-validate-data">Fecha de vencimiento de la tarjeta: <input class="input" type="date" name="validate" id="tdc-date"></label>
+                  <div class="content-btn-validate">
+                      <button class="btn-validate-class" id="btn-validate">Validar tarjeta</button>
+                      <button type="reset" class="btn-validate-class" id="btn-validate">Restaurar</button>
+                  </div>
+                  
+              </div>
+              
+          <!-- Card validation is displayed here.-->
+      </form>
+      
+  </main>    
     <footer></footer>
     <script src="index.js" type="module"></script>
   </body>

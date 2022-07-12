@@ -1,0 +1,170 @@
+:root{
+    --color-principal:#5a8189;
+    --opacity-color-principal:0.90;
+    --color-secundario:#F4EDDA;
+    --opacity-color-secundario:0.85;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Dosis', sans-serif;
+}
+
+body{
+    background-image: url("https://img.freepik.com/fotos-premium/mujeres-sofisticadas-elegantes_102671-2425.jpg?w=996");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    
+    
+    
+}
+.main-content{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.header{
+    width: 100%;
+    height: 40px;
+
+    background-color:var(--color-principal);
+    opacity: var(--opacity-color-principal);
+
+    display: flex;
+    justify-content: space-between;    
+}
+
+.elegant-font{
+    width: 60%;
+    padding-left: 20px;
+    color:var(--color-secundario);
+    font-size: 30px;
+}
+
+  .content-nav-barr{ 
+    width: 30%;
+    display: flex;
+}
+
+.nav-barr{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-nav{
+    border: 0;
+    background-color:var(--color-principal);
+    color:var(--color-secundario);
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* validation */
+.validate-card{
+    width: 55%;
+    height: 250px;
+    display: block;
+    background-color: var(--color-secundario);
+    opacity: var(--opacity-color-secundario);
+    border-radius: 20px;
+}
+
+.tittle-shop{
+    font-size: 25px;
+    color:var(--color-principal);
+    font-weight: bolder;
+}
+
+.validate-card-data{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color:var(--color-principal);
+    font-weight: bold;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.input{
+    width: 300px;
+    height: 30px;
+    border: 1px solid var(--color-principal);
+    border-radius: 10px;
+}
+
+.btn-validate-class{
+    width: 15%;
+    height: 90%;
+    margin-top: 2%;
+    border: 1px solid var(--color-principal);
+    border-radius: 50px;
+    background-color: var(--color-principal);
+    color: var(--color-secundario);
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+/* CATÁLOGOS */
+.all-catalogs{
+    width: 70%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    background-color:var(--color-principal);
+    opacity: var(--opacity-color-principal);
+    display: none;
+}
+
+.catalog-clothes, .catalog-shoes{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content-img-catalog-clothes, .content-img-catalog-shoes{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.fig-img-clothes, .fig-img-shoes{
+    width: 30%;
+    
+}
+
+.img-clothes, .img-shoes {
+    width: 100%;
+    height: 100%;
+    opacity: 0.99;
+    
+}
+
+.catalog-shoes{
+    display: none;
+}
+
+.catalog-clothes{
+    display: none;
+}
+
+.price-img-clothes, .price-img-shoes{
+    color:rgb(238, 245, 238);
+    text-align: center;
+}
