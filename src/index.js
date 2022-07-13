@@ -16,14 +16,14 @@ const btnValidate = document.getElementById('btn-validate')
     btnValidate.addEventListener('click',()=>{
         const creditCardNumber = getNumberValue()
         const validOrInvalidCardNumber = validator.isValid(creditCardNumber)
-
-        if(validOrInvalidCardNumber === true){
-            console.log(validator.maskify(creditCardNumber))
+        
+        if(validOrInvalidCardNumber){
+            return validator.maskify(creditCardNumber)
         }else{
-            console.log(`Su tarjeta no es válida`)
+            return `Su tarjeta no es válida`
         }
     })
 }
 
-eventClickValidate()
+window.addEventListener('load', eventClickValidate())
 

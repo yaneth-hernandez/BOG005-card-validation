@@ -29,14 +29,11 @@ const validator = {
         
         if(cardValidation%10===0){
             responseMessage = true
-        }else{
-            responseMessage = false
         }
         //debe retornar true o false
-        return responseMessage
     }
-
-    //console.log(responseMessage)
+    
+    return responseMessage
   },
   
  
@@ -49,8 +46,14 @@ const validator = {
   
     //Genero nuevo array 
     let mostrar = creditCardNumber.split('').slice(newStartingPosition, lastPosition)
-  
-    return `************** ${mostrar.join('')}`
+
+    let transformElement = creditCardNumber.split('').slice(0,newStartingPosition).map(()=>{
+       return '#'
+    })
+    
+    let finalMaks = `${transformElement.join('')}${mostrar.join('')}`
+    
+    return finalMaks
   }
 
 };
