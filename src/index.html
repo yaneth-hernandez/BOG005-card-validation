@@ -19,11 +19,11 @@
           <div class="content-nav-barr">
               <nav class="nav-barr">
                   <button class="btn-nav">Home</button>
-                  <button class="btn-nav" id="product-id">Productos</button>
+                  <button class="btn-nav" id="product-id">Products</button>
                     <ol class="nav-bar-elements" id="nav-bar-elements-id">
-                      <li class="close-nav-barr" id="btn-close-nav-barr">X</li>
-                      <li class="categories" id="clothes-category">Ropa</li>
-                      <li class="categories" id="shoes-category">Calzados</li>
+                      <li class="close-nav-barr"><button class="close-nav-barr" id="btn-close-nav-barr-id">X</button></li>
+                      <li class="categories"><button class="categories selected-catalog" id="clothes-category">Clothes</button></li>
+                      <li class="categories" ><button class="categories selected-catalog" id="shoes-category">Shoes</button></li>
                     </ol>
                   <button class="btn-nav">Blog</button>
              </nav>
@@ -31,45 +31,44 @@
           </div>
       </header>
       <main class="content-page" id="content-page-id">
-          <section class="catalog-clothes">
+          <section class="catalog-clothes" id="catalog-clothes-id">
             <div class="content-tittle-img-price">
-              <div class="tittle-shop close-catalog">X</div>
-              <h3 class="tittle-shop">Ropa</h3>
+              <div class="tittle-shop close-catalog" id="close-catalog-clothes-id">X</div>
+              <h3 class="tittle-shop">Clothes</h3>
               <div class="content-img-catalog-clothes">
-                  <figure class="fig-img-clothes"><img class="img-clothes" src="./img/vestido.jpg" alt="Vestido flores"><figcaption class="price-img-clothes">Precio: 50$</figcaption></figure>
-                  <figure class="fig-img-clothes"><img class="img-clothes" src="./img/Jeans.jpg" alt="Jeans"><figcaption class="price-img-clothes">Precio: 20$</figcaption></figure>
-                  <figure class="fig-img-clothes"><img class="img-clothes" src="./img/conjustos.jpg" alt="Conjunto"><figcaption class="price-img-clothes">Precio: 55$</figcaption></figure>
+                  <figure class="fig-img-clothes" id="fig-img-clothes-1"><img class="img-clothes" id="img-clothes-1" src="./img/vestido.jpg" alt="Vestido flores"><figcaption class="price-img-clothes" id="price-img-clothes-1">Price: 50$</figcaption></figure>
+                  <figure class="fig-img-clothes" id="fig-img-clothes-2"><img class="img-clothes" id="img-clothes-2" src="./img/Jeans.jpg" alt="Jeans"><figcaption class="price-img-clothes" id="price-img-clothes-2">Price: 20$</figcaption></figure>
+                  <figure class="fig-img-clothes" id="fig-img-clothes-3"><img class="img-clothes" id="img-clothes-3" src="./img/conjustos.jpg" alt="Conjunto"><figcaption class="price-img-clothes" id="price-img-clothes-3">Price: 55$</figcaption></figure>
               </div>
             </div>
           </section>
-          <section class="catalog-shoes">
+          <section class="catalog-shoes" id="catalog-shoes-id">
             <div class="content-tittle-img-price">
-                <div class="tittle-shop close-catalog">X</div>
-                <h3 class="tittle-shop">Calzados</h3>
+                <div class="tittle-shop close-catalog" id="close-catalog-shoes-id">X</div>
+                <h3 class="tittle-shop">Shoes</h3>
               <div class="content-img-catalog-shoes">
-                  <figure class="fig-img-shoes"><img class="img-shoes" src="./img/botas.jpg" alt="Botas"><figcaption class="price-img-shoes">Precio: 30$</figcaption></figure>
-                  <figure class="fig-img-shoes"><img class="img-shoes" src="./img/tacones.jpg" alt="Tacones"><figcaption class="price-img-shoes">Precio: 35$</figcaption></figure>
-                  <figure class="fig-img-shoes"><img class="img-shoes" src="./img/tenis.jpg" alt="Tenis"><figcaption class="price-img-shoes">Precio: 20$</figcaption></figure>
+                  <figure class="fig-img-shoes" id="fig-img-shoes-1"><img class="img-shoes" id="img-shoes-1" src="./img/botas.jpg" alt="Botas"><figcaption class="price-img-shoes" id="price-img-shoes-1">Price: 30$</figcaption></figure>
+                  <figure class="fig-img-shoes" id="fig-img-shoes-2"><img class="img-shoes" id="img-shoes-2" src="./img/tacones.jpg" alt="Tacones"><figcaption class="price-img-shoes" id="price-img-shoes-2">Price: 35$</figcaption></figure>
+                  <figure class="fig-img-shoes" id="fig-img-shoes-3"><img class="img-shoes" id="img-shoes-3" src="./img/tenis.jpg" alt="Tenis"><figcaption class="price-img-shoes" id="price-img-shoes-3">Price: 20$</figcaption></figure>
               </div>
             </div>
           </section>
       <form action="" class="validate-card" id="validate-card-id">
-              <h3 class="tittle-shop">Validar tarjeta</h3>
+              <h3 class="tittle-shop">Validate card</h3>
               <div class="validate-card-data">
-                  <label for="tdc-name" class="labe-validate-data">Ingrese nombre del titular: <input class="input" type="text" name="validate" id="tdc-name"></label>
-                  <label for="tdc" class="labe-validate-data">Ingrese número de tarjeta: <input class="input" type="number" name="validate" id="tdc"></label>
-                  <label for="tdc-cod-val" class="labe-validate-data">Código de validación de la tarjeta: <input class="input" type="number" name="validate" id="tdc-cod-val"></label>
-                  <label for="tdc-date" class="labe-validate-data">Fecha de vencimiento de la tarjeta: <input class="input" type="date" name="validate" id="tdc-date"></label>
+                  <label for="tdc-name" class="labe-validate-data">Cardholder Name: <input class="input" type="text" name="validate" id="tdc-name" required></label>
+                  <label for="tdc" class="labe-validate-data">Card Number: <input class="input" type="number" name="validate" id="tdc" required></label>
                   <div class="content-btn-validate">
-                      <button type="button" class="btn-validate-class" id="btn-validate">Validar tarjeta</button>
+                      <button type="button" class="btn-validate-class" id="btn-validate">Validate card</button>
                       <!-- <button type="reset" class="btn-validate-class" id="btn-reset">Restaurar</button> -->
-                    <h4 class="mostrar-número" id="mostrar-número-id"></h4>
+
                   </div>
-
               </div>
-
-          <!-- Card validation is displayed here.-->
       </form>
+        <section class="messages" id="messages-id">
+          <h4 class="show-number" id="show-number-id"></h4>
+        </section>
+
       </main>
 <!--  </main>-->
     <footer></footer>
