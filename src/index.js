@@ -2,6 +2,10 @@ import validator from './validator.js';
 
 //console.log(validator);
 
+//SECCIÓN MODALES CATÁLOGOS Y VALIDACIÓN DE TARJETA
+
+//Objeto para guardar los datos de las secciones catálogos y validación de tarjeta,
+// mostrarlas, ocultarlas,ejecutar acciones y eventos
 const catalogs = {
   cardValidation : document.getElementById('validate-card-id'),
   catalogClothes: document.getElementById('catalog-clothes-id'),
@@ -28,10 +32,42 @@ const catalogs = {
   hideCardValidation:()=>{
     catalogs.cardValidation.classList.remove('validate-card-show')
   },
+
+  actionForEventsInCatalogs :(event, category) =>{
+    const currentElementOfTheEvent = event.target.id
+    catalogs.hideCatalogs(category)
+
+    if(currentElementOfTheEvent.includes('img')){
+      catalogs.showCardValidation()
+    }
+  },
+
+   eventsInCatalogs : ()=> {
+    const eventCloseCatalogClothes = catalogs.catalogClothes
+    eventCloseCatalogClothes.addEventListener('click',(e)=>{
+      catalogs.actionForEventsInCatalogs(e, 'clothes')
+    })
+
+    const eventCloseCatalogShoes = catalogs.catalogShoes
+    eventCloseCatalogShoes.addEventListener('click',(e)=>{
+      catalogs.actionForEventsInCatalogs(e, 'shoes')
+    })
+  }
+}
+//FIN SECCIÓN MODALES CATÁLOGOS Y VALIDACIÓN DE TARJETA
+
+
+//BARRA DE NAVEGACIÓN
+
+//Muestra u oculta barra de navegación
+const showOrHideNavBar = ()=>{
+  const visibleNavBarr = document.getElementById('nav-bar-elements-id')
+  visibleNavBarr.classList.toggle('show-nav-bar-elements')
 }
 
-
-const chooseCategories = (event) => {
+//Con la barra de navegación mostrada, muestra las categorías de productos,
+//Se pueden seleccionar las categorías
+const chooseCategoriesInNavBarr = (event) => {
   const category = event.target.textContent;
 
   showOrHideNavBar()
@@ -39,14 +75,9 @@ const chooseCategories = (event) => {
   catalogs.hideCatalogs('Shoes')
   catalogs.hideCardValidation()
   catalogs.showCatalogs(category)
-
 }
 
-const showOrHideNavBar = ()=>{
-  const visibleNavBarr = document.getElementById('nav-bar-elements-id')
-  visibleNavBarr.classList.toggle('show-nav-bar-elements')
-}
-
+//Se generan los eventos de la barra de navegación
 const eventNavBarr = ()=>{
   const btnProduct = document.getElementById('product-id')
   btnProduct.addEventListener('click', showOrHideNavBar)
@@ -56,35 +87,18 @@ const eventNavBarr = ()=>{
 
   const btnClothes = document.getElementById('clothes-category')
   btnClothes.addEventListener('click',(event)=>{
-    chooseCategories(event)
+    chooseCategoriesInNavBarr(event)
   })
   const btnShoes = document.getElementById('shoes-category')
   btnShoes.addEventListener('click',(event)=>{
-    chooseCategories(event)
+    chooseCategoriesInNavBarr(event)
   })
 }
+//FIN BARRA DE NAVEGACIÓN
 
-const actionEventsInCatalogs = (event, category) =>{
-  const currentElementOfTheEvent = event.target.id
-    catalogs.hideCatalogs(category)
+//OBTENCIÓN Y VALIDACIÓN DE TARJETA
 
-  if(currentElementOfTheEvent.includes('img')){
-    catalogs.showCardValidation()
-  }
-}
-
-const eventsInCatalogs = ()=> {
-  const eventCloseCatalogClothes = catalogs.catalogClothes
-  eventCloseCatalogClothes.addEventListener('click',(e)=>{
-    actionEventsInCatalogs(e, 'clothes')
-  })
-
-  const eventCloseCatalogShoes = catalogs.catalogShoes
-  eventCloseCatalogShoes.addEventListener('click',(e)=>{
-    actionEventsInCatalogs(e, 'shoes')
-  })
-}
-
+//Obtiene y retorna el número
 const getNumberValue = () =>{
     const input = document.getElementById('tdc')
     let getValue = input.value
@@ -93,37 +107,28 @@ const getNumberValue = () =>{
     return valueArray
 }
 
+//Evalúa el número y muestra si es valido, recibe la función isValid
 const keepMessageValidate = ()=>{
   const creditCardNumber = getNumberValue()
   const validOrInvalidCardNumber = validator.isValid(creditCardNumber)
   const keepMessage = document.getElementById('show-number-id')
 
-
   if(validOrInvalidCardNumber){
     keepMessage.textContent = `Su número de tarjeta ${validator.maskify(creditCardNumber)} ha sido validada con éxito`
-
   }else{
     keepMessage.textContent = `Su tarjeta no es válida`
-
   }
 }
 
+//Genera el evento para mostrar si la targeta es válida o no
 const eventClickValidate = ()=> {
 const btnValidate = document.getElementById('btn-validate')
     btnValidate.addEventListener('click',()=>{
-        // const creditCardNumber = getNumberValue()
-        // const validOrInvalidCardNumber = validator.isValid(creditCardNumber)
-        //
-        // if(validOrInvalidCardNumber){
-        //     return validator.maskify(creditCardNumber)
-        // }else{
-        //     return `Su tarjeta no es válida`
-        // }
       keepMessageValidate()
     })
 }
 //tarjeta válida: 676767676
 
 
-window.addEventListener('load',eventNavBarr(),eventsInCatalogs(), eventClickValidate())
+window.addEventListener('load',eventNavBarr(),catalogs.eventsInCatalogs(), eventClickValidate())
 

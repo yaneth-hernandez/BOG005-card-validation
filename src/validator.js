@@ -25,12 +25,12 @@ const validator = {
 
         //validar mútiplo de 10
         let cardValidation = addElem.reduce((a,b)=> a+b, 0)
-        //let responseMessage = false
+
 
         if(cardValidation%10===0){
             responseMessage = true
         }
-        //debe retornar true o false
+
     }
 
     return responseMessage

@@ -191,6 +191,19 @@
     letter-spacing: 1px;
 }
 
+.messages{
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.show-number{
+  color: var(--color-principal);
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
 .catalog-clothes, .catalog-shoes{
     width: 50%;
     height: 51.17%;
@@ -219,6 +232,7 @@
   width: 95%;
   display: flex;
   justify-content:flex-end ;
+  cursor: default;
 }
 
 .content-tittle-img-price{

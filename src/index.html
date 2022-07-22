@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="description" content="Ropa para damas, casual y elegante">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Mochiy+Pop+P+One&family=Mulish:wght@500;700&family=Oswald:wght@200&family=Quicksand:wght@700&family=Smokum&display=swap" rel="stylesheet">
@@ -58,16 +59,19 @@
               <div class="validate-card-data">
                   <label for="tdc-name" class="labe-validate-data">Cardholder Name: <input class="input" type="text" name="validate" id="tdc-name" required></label>
                   <label for="tdc" class="labe-validate-data">Card Number: <input class="input" type="number" name="validate" id="tdc" required></label>
+                  <label for="tdc-cod-val" class="labe-validate-data">Validation Code: <input type="number" name="validate" id="tdc-cod-val"></label>
+                  <label for="tdc-date" class="labe-validate-data">Card Expiration Date: <input type="date" name="validate" id="tdc-date"></label>
                   <div class="content-btn-validate">
                       <button type="button" class="btn-validate-class" id="btn-validate">Validate card</button>
                       <!-- <button type="reset" class="btn-validate-class" id="btn-reset">Restaurar</button> -->
 
                   </div>
               </div>
-      </form>
         <section class="messages" id="messages-id">
           <h4 class="show-number" id="show-number-id"></h4>
         </section>
+      </form>
+
 
       </main>
 <!--  </main>-->
