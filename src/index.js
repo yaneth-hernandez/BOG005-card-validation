@@ -2,12 +2,49 @@ import validator from './validator.js';
 
 //console.log(validator);
 
-//SECCIÓN MODALES CATÁLOGOS Y VALIDACIÓN DE TARJETA
+window.onload=()=>{
+  navigationBar.eventNavBarr()
+  catalogs.eventsInCatalogs()
+  cardNumberValidation.eventClickValidate()
+  cardNumberValidation.eventCloseValidationWindow()
+}
 
-//Objeto para guardar los datos de las secciones catálogos y validación de tarjeta,
-// mostrarlas, ocultarlas,ejecutar acciones y eventos
+const navigationBar ={
+  visibleNavBarr : document.getElementById('nav-bar-elements-id'),
+  btnProduct : document.getElementById('product-id'),
+  btnCloseBarr : document.getElementById('btn-close-nav-barr-id'),
+  btnClothes : document.getElementById('clothes-category'),
+  btnShoes : document.getElementById('shoes-category'),
+
+    showOrHideNavBar : ()=>{
+      navigationBar.visibleNavBarr.classList.toggle('show-nav-bar-elements')
+    },
+    chooseCategoriesInNavBarr : (event) => {
+      const category = event.target.textContent;
+
+      navigationBar.showOrHideNavBar()
+      catalogs.hideCatalogs('Clothes')
+      catalogs.hideCatalogs('Shoes')
+      cardNumberValidation.hideCardValidation()
+      catalogs.showCatalogs(category)
+  },
+  eventNavBarr : ()=> {
+     navigationBar.btnProduct.addEventListener('click', navigationBar.showOrHideNavBar)
+
+     navigationBar.btnCloseBarr.addEventListener('click', navigationBar.showOrHideNavBar)
+
+     navigationBar.btnClothes.addEventListener('click', (event) => {
+       navigationBar.chooseCategoriesInNavBarr(event)
+    })
+
+     navigationBar.btnShoes.addEventListener('click', (event) => {
+      navigationBar.chooseCategoriesInNavBarr(event)
+    })
+  },
+}
+
+
 const catalogs = {
-  cardValidation : document.getElementById('validate-card-id'),
   catalogClothes: document.getElementById('catalog-clothes-id'),
   catalogShoes: document.getElementById('catalog-shoes-id'),
 
@@ -25,20 +62,12 @@ const catalogs = {
     catalogCategories.classList.toggle(`show-catalog-${category.toLowerCase()}`)
   },
 
-  showCardValidation:()=>{
-     catalogs.cardValidation.classList.toggle('validate-card-show')
-  },
-
-  hideCardValidation:()=>{
-    catalogs.cardValidation.classList.remove('validate-card-show')
-  },
-
   actionForEventsInCatalogs :(event, category) =>{
     const currentElementOfTheEvent = event.target.id
     catalogs.hideCatalogs(category)
 
     if(currentElementOfTheEvent.includes('img')){
-      catalogs.showCardValidation()
+      cardNumberValidation.showCardValidation()
     }
   },
 
@@ -54,81 +83,47 @@ const catalogs = {
     })
   }
 }
-//FIN SECCIÓN MODALES CATÁLOGOS Y VALIDACIÓN DE TARJETA
+
+const cardNumberValidation = {
+  keepMessage : document.getElementById('show-number-id'),
+  cardValidation : document.getElementById('validate-card-id'),
+  btnValidate : document.getElementById('btn-validate'),
+  btnCloseValidate : document.getElementById('close-validate-card-id'),
 
 
-//BARRA DE NAVEGACIÓN
+  generateValidationMessage : (cardNumber)=>{
 
-//Muestra u oculta barra de navegación
-const showOrHideNavBar = ()=>{
-  const visibleNavBarr = document.getElementById('nav-bar-elements-id')
-  visibleNavBarr.classList.toggle('show-nav-bar-elements')
-}
+        const validOrInvalidCardNumber = validator.isValid(cardNumber)
+        if(validOrInvalidCardNumber){
+          cardNumberValidation.keepMessage.value = `Su número de tarjeta ${validator.maskify(cardNumber)} ha sido validada con éxito`
+        }else{
+          cardNumberValidation.keepMessage.value = `Su tarjeta no es válida`
+        }
+   },
 
-//Con la barra de navegación mostrada, muestra las categorías de productos,
-//Se pueden seleccionar las categorías
-const chooseCategoriesInNavBarr = (event) => {
-  const category = event.target.textContent;
+  showCardValidation:()=>{
+    cardNumberValidation.cardValidation.classList.toggle('validate-card-show')
+  },
 
-  showOrHideNavBar()
-  catalogs.hideCatalogs('Clothes')
-  catalogs.hideCatalogs('Shoes')
-  catalogs.hideCardValidation()
-  catalogs.showCatalogs(category)
-}
+  hideCardValidation:()=>{
+    cardNumberValidation.cardValidation.classList.remove('validate-card-show')
+  },
 
-//Se generan los eventos de la barra de navegación
-const eventNavBarr = ()=>{
-  const btnProduct = document.getElementById('product-id')
-  btnProduct.addEventListener('click', showOrHideNavBar)
+  eventClickValidate : ()=> {
+    cardNumberValidation.btnValidate.addEventListener('click',()=>{
+      const cardNumber = document.getElementById('tdc').value
+       cardNumberValidation.generateValidationMessage(cardNumber)
+   })
+  },
 
-  const btnCloseBarr = document.getElementById('btn-close-nav-barr-id')
-  btnCloseBarr.addEventListener('click', showOrHideNavBar)
-
-  const btnClothes = document.getElementById('clothes-category')
-  btnClothes.addEventListener('click',(event)=>{
-    chooseCategoriesInNavBarr(event)
-  })
-  const btnShoes = document.getElementById('shoes-category')
-  btnShoes.addEventListener('click',(event)=>{
-    chooseCategoriesInNavBarr(event)
-  })
-}
-//FIN BARRA DE NAVEGACIÓN
-
-//OBTENCIÓN Y VALIDACIÓN DE TARJETA
-
-//Obtiene y retorna el número
-const getNumberValue = () =>{
-    const input = document.getElementById('tdc')
-    let getValue = input.value
-    let valueArray = getValue
-
-    return valueArray
-}
-
-//Evalúa el número y muestra si es valido, recibe la función isValid
-const keepMessageValidate = ()=>{
-  const creditCardNumber = getNumberValue()
-  const validOrInvalidCardNumber = validator.isValid(creditCardNumber)
-  const keepMessage = document.getElementById('show-number-id')
-
-  if(validOrInvalidCardNumber){
-    keepMessage.textContent = `Su número de tarjeta ${validator.maskify(creditCardNumber)} ha sido validada con éxito`
-  }else{
-    keepMessage.textContent = `Su tarjeta no es válida`
+  eventCloseValidationWindow:() =>{
+    cardNumberValidation.btnCloseValidate.addEventListener('click',cardNumberValidation.hideCardValidation)
   }
 }
 
-//Genera el evento para mostrar si la targeta es válida o no
-const eventClickValidate = ()=> {
-const btnValidate = document.getElementById('btn-validate')
-    btnValidate.addEventListener('click',()=>{
-      keepMessageValidate()
-    })
-}
 //tarjeta válida: 676767676
 
 
-window.addEventListener('load',eventNavBarr(),catalogs.eventsInCatalogs(), eventClickValidate())
+
+
 

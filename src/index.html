@@ -55,21 +55,29 @@
             </div>
           </section>
       <form action="" class="validate-card" id="validate-card-id">
+        <div class="modal-card">
+          <div class="tittle-shop close-catalog" id="close-validate-card-id">X</div>
               <h3 class="tittle-shop">Validate card</h3>
               <div class="validate-card-data">
-                  <label for="tdc-name" class="labe-validate-data">Cardholder Name: <input class="input" type="text" name="validate" id="tdc-name" required></label>
-                  <label for="tdc" class="labe-validate-data">Card Number: <input class="input" type="number" name="validate" id="tdc" required></label>
-                  <label for="tdc-cod-val" class="labe-validate-data">Validation Code: <input type="number" name="validate" id="tdc-cod-val"></label>
-                  <label for="tdc-date" class="labe-validate-data">Card Expiration Date: <input type="date" name="validate" id="tdc-date"></label>
+                  <label for="tdc-name" class="labe-validate-data">Cardholder Name: <input class="input" type="text" name="validate" id="tdc-name"/></label>
+                  <label for="tdc" class="labe-validate-data">Card Number: <input class="input" type="number" name="validate" value="" id="tdc"/></label>
+                  <label for="tdc-cod-val" class="labe-validate-data">Validation Code: <input class="input input-validation" type="number" name="validate" id="tdc-cod-val"/></label>
+                  <label for="tdc-date" class="labe-validate-data">Card Expiration Date: <input class="input input-validation" type="text" name="validate" id="tdc-date"/></label>
                   <div class="content-btn-validate">
                       <button type="button" class="btn-validate-class" id="btn-validate">Validate card</button>
-                      <!-- <button type="reset" class="btn-validate-class" id="btn-reset">Restaurar</button> -->
-
+                      <button type="reset" class="btn-validate-class" id="btn-reset">Restaurar</button>
                   </div>
               </div>
-        <section class="messages" id="messages-id">
-          <h4 class="show-number" id="show-number-id"></h4>
-        </section>
+          <label for="show-number-id" class="messages" id="messages-id">
+<!--          <section class="messages" id="messages-id">-->
+               <input class="show-number" id="show-number-id" value="" readonly/>
+<!--            <h4 class="show-number" id="show-number-id"></h4>-->
+<!--              </section>-->
+          </label>
+        </div>
+<!--        <section class="validate-card messages" id="messages-id">-->
+<!--          <h4 class="show-number" id="show-number-id"></h4>-->
+<!--        </section>-->
       </form>
 
 

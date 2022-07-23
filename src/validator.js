@@ -1,9 +1,9 @@
 const validator = {
-  // ...
+  responseMessage : false,
+
   isValid: (creditCardNumber) => {
-    let responseMessage = false
-    if(creditCardNumber!=null && creditCardNumber!==''){
-      const arrayReverse=creditCardNumber.split('').reverse()
+    if(creditCardNumber != null && creditCardNumber!==''){
+      const arrayReverse = creditCardNumber.split('').reverse()
 
       const indicesMultipliedByTwo = arrayReverse.map((num,index)=>{
          return index % 2 !== 0 ? num*2 : parseInt(num)
@@ -23,21 +23,16 @@ const validator = {
             }
         })
 
-        //validar mútiplo de 10
-        let cardValidation = addElem.reduce((a,b)=> a+b, 0)
+      let cardValidation = addElem.reduce((a,b)=> a+b, 0)
 
-
-        if(cardValidation%10===0){
-            responseMessage = true
-        }
-
+      if(cardValidation % 10 === 0){
+           validator.responseMessage = true
+      }
     }
-
-    return responseMessage
+    return validator.responseMessage
   },
 
-
-   maskify: (creditCardNumber) => {
+  maskify: (creditCardNumber) => {
     //busco la última posición del array
     let lastPosition = creditCardNumber.length
 
@@ -50,12 +45,8 @@ const validator = {
     let transformElement = creditCardNumber.split('').slice(0,newStartingPosition).map(()=>{
        return '#'
     })
-
-    let finalMaks = `${transformElement.join('')}${mostrar.join('')}`
-
-    return finalMaks
+    return  `${transformElement.join('')}${mostrar.join('')}`
   }
-
 };
 
 export default validator;

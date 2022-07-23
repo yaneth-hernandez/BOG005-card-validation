@@ -135,10 +135,10 @@
 
 /* validation */
 .validate-card{
-    width: 55%;
-    height: 250px;
+    width: 45%;
+    height: 430px;
     display: none;
-    background-color: var(--color-secundario);
+    background-color: var(--color-principal);
     opacity: var(--opacity-color-secundario);
     border-radius: 20px;
 }
@@ -147,24 +147,37 @@
   display: block;
 }
 
+.modal-card{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .tittle-shop{
     display: flex;
     justify-content: center;
-    font-size: 25px;
+    font-size: 35px;
     color:var(--color-secundario);
     font-weight: bolder;
 }
 
 .validate-card-data{
-    width: 100%;
+    width: 80%;
     height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    color:var(--color-principal);
+    color:var(--color-secundario);
     font-weight: bold;
     font-size: 19px;
     letter-spacing: 1px;
+}
+
+.labe-validate-data{
+  font-size: 23px;
 }
 
 .input{
@@ -179,29 +192,45 @@
     color:var(--color-principal);
 }
 
+.input-validation{
+  width: 90px;
+}
+
+.content-btn-validate{
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn-validate-class{
-    width: 15%;
-    height: 90%;
+    width: 225px;
+    height: 48px;
     margin-top: 2%;
     border: 1px solid var(--color-principal);
     border-radius: 50px;
-    background-color: var(--color-principal);
-    color: var(--color-secundario);
-    font-size: 18px;
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+    font-size: 23px;
     letter-spacing: 1px;
+  font-weight: bolder;
 }
 
 .messages{
   width: 100%;
-  height: 30px;
+  height: 110px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
+
 .show-number{
-  color: var(--color-principal);
-  font-size: 18px;
+  width: 90%;
+  color: var(--color-secundario);
+  font-size: 23px;
+  font-weight: bolder;
   letter-spacing: 1px;
+  background-color: var(--color-principal);
+  border: 0;
 }
 
 .catalog-clothes, .catalog-shoes{
