@@ -233,6 +233,10 @@
   border: 0;
 }
 
+.show-number:focus{
+  outline: none;
+}
+
 .catalog-clothes, .catalog-shoes{
     width: 50%;
     height: 51.17%;

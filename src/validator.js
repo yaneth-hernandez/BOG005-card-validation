@@ -1,8 +1,6 @@
 const validator = {
-  responseMessage : false,
-
   isValid: (creditCardNumber) => {
-    if(creditCardNumber != null && creditCardNumber!==''){
+   if(creditCardNumber != null && creditCardNumber!==''){
       const arrayReverse = creditCardNumber.split('').reverse()
 
       const indicesMultipliedByTwo = arrayReverse.map((num,index)=>{
@@ -23,13 +21,10 @@ const validator = {
             }
         })
 
-      let cardValidation = addElem.reduce((a,b)=> a+b, 0)
-
-      if(cardValidation % 10 === 0){
-           validator.responseMessage = true
-      }
-    }
-    return validator.responseMessage
+     let cardValidation = addElem.reduce((a,b)=> a+b, 0)
+     return cardValidation % 10 === 0
+   }
+    return false
   },
 
   maskify: (creditCardNumber) => {

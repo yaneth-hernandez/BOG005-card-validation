@@ -7,6 +7,7 @@ window.onload=()=>{
   catalogs.eventsInCatalogs()
   cardNumberValidation.eventClickValidate()
   cardNumberValidation.eventCloseValidationWindow()
+
 }
 
 const navigationBar ={
@@ -63,11 +64,11 @@ const catalogs = {
   },
 
   actionForEventsInCatalogs :(event, category) =>{
-    const currentElementOfTheEvent = event.target.id
-    catalogs.hideCatalogs(category)
-
-    if(currentElementOfTheEvent.includes('img')){
+     if(event.target.nodeName === 'IMG'|| event.target.nodeName === 'FIGURE' || event.target.nodeName === 'FIGCAPTION'){
+      catalogs.hideCatalogs(category)
       cardNumberValidation.showCardValidation()
+     }else if(event.target.nodeName === 'DIV' && event.target.id === `close-catalog-${category}-id`){
+      catalogs.hideCatalogs(category)
     }
   },
 
@@ -86,27 +87,30 @@ const catalogs = {
 
 const cardNumberValidation = {
   keepMessage : document.getElementById('show-number-id'),
-  cardValidation : document.getElementById('validate-card-id'),
+  cardValidationFrom : document.getElementById('validate-card-id'),
   btnValidate : document.getElementById('btn-validate'),
   btnCloseValidate : document.getElementById('close-validate-card-id'),
+  btnResetValidate : document.getElementById('btn-reset'),
 
 
   generateValidationMessage : (cardNumber)=>{
 
-        const validOrInvalidCardNumber = validator.isValid(cardNumber)
+        let validOrInvalidCardNumber = validator.isValid(cardNumber)
         if(validOrInvalidCardNumber){
           cardNumberValidation.keepMessage.value = `Su número de tarjeta ${validator.maskify(cardNumber)} ha sido validada con éxito`
+
         }else{
           cardNumberValidation.keepMessage.value = `Su tarjeta no es válida`
+
         }
    },
 
   showCardValidation:()=>{
-    cardNumberValidation.cardValidation.classList.toggle('validate-card-show')
+    cardNumberValidation.cardValidationFrom.classList.toggle('validate-card-show')
   },
 
   hideCardValidation:()=>{
-    cardNumberValidation.cardValidation.classList.remove('validate-card-show')
+    cardNumberValidation.cardValidationFrom.classList.remove('validate-card-show')
   },
 
   eventClickValidate : ()=> {
