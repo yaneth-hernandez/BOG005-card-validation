@@ -44,7 +44,6 @@ const navigationBar ={
   },
 }
 
-
 const catalogs = {
   catalogClothes: document.getElementById('catalog-clothes-id'),
   catalogShoes: document.getElementById('catalog-shoes-id'),
@@ -53,34 +52,34 @@ const catalogs = {
     return document.getElementById(`catalog-${category}-id`)
   },
 
-  hideCatalogs: (category)=>{
-    let catalogCategories = catalogs.getCatalogs(category.toLowerCase())
+  hideCatalogs: function (category){
+    let catalogCategories = this.getCatalogs(category.toLowerCase())
     catalogCategories.classList.remove(`show-catalog-${category.toLowerCase()}`)
   },
 
-  showCatalogs:(category)=>{
-    let catalogCategories = catalogs.getCatalogs(category.toLowerCase())
+  showCatalogs: function (category){
+    let catalogCategories = this.getCatalogs(category.toLowerCase())
     catalogCategories.classList.toggle(`show-catalog-${category.toLowerCase()}`)
   },
 
-  actionForEventsInCatalogs :(event, category) =>{
+  actionForEventsInCatalogs : function (event, category) {
      if(event.target.nodeName === 'IMG'|| event.target.nodeName === 'FIGURE' || event.target.nodeName === 'FIGCAPTION'){
-      catalogs.hideCatalogs(category)
+      this.hideCatalogs(category)
       cardNumberValidation.showCardValidation()
      }else if(event.target.nodeName === 'DIV' && event.target.id === `close-catalog-${category}-id`){
-      catalogs.hideCatalogs(category)
+      this.hideCatalogs(category)
     }
   },
 
-   eventsInCatalogs : ()=> {
-    const eventCloseCatalogClothes = catalogs.catalogClothes
+   eventsInCatalogs: function () {
+    const eventCloseCatalogClothes = this.catalogClothes
     eventCloseCatalogClothes.addEventListener('click',(e)=>{
-      catalogs.actionForEventsInCatalogs(e, 'clothes')
+      this.actionForEventsInCatalogs(e, 'clothes')
     })
 
-    const eventCloseCatalogShoes = catalogs.catalogShoes
+    const eventCloseCatalogShoes = this.catalogShoes
     eventCloseCatalogShoes.addEventListener('click',(e)=>{
-      catalogs.actionForEventsInCatalogs(e, 'shoes')
+      this.actionForEventsInCatalogs(e, 'shoes')
     })
   }
 }
@@ -90,18 +89,13 @@ const cardNumberValidation = {
   cardValidationFrom : document.getElementById('validate-card-id'),
   btnValidate : document.getElementById('btn-validate'),
   btnCloseValidate : document.getElementById('close-validate-card-id'),
-  btnResetValidate : document.getElementById('btn-reset'),
-
-
+  
   generateValidationMessage : (cardNumber)=>{
-
         let validOrInvalidCardNumber = validator.isValid(cardNumber)
         if(validOrInvalidCardNumber){
           cardNumberValidation.keepMessage.value = `Su número de tarjeta ${validator.maskify(cardNumber)} ha sido validada con éxito`
-
         }else{
           cardNumberValidation.keepMessage.value = `Su tarjeta no es válida`
-
         }
    },
 
@@ -120,7 +114,7 @@ const cardNumberValidation = {
    })
   },
 
-  eventCloseValidationWindow:() =>{
+  eventCloseValidationWindow:function () {
     cardNumberValidation.btnCloseValidate.addEventListener('click',cardNumberValidation.hideCardValidation)
   }
 }
