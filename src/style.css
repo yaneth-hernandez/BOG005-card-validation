@@ -19,7 +19,8 @@ html{
 }
 
 .main-content{
-    background-image: url("https://img.freepik.com/fotos-premium/mujeres-sofisticadas-elegantes_102671-2425.jpg?w=996");
+    /* background-image: url("https://img.freepik.com/fotos-premium/mujeres-sofisticadas-elegantes_102671-2425.jpg?w=996"); */
+    background-image: url("./img/main_image.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -309,5 +310,40 @@ html{
 .price-img-clothes, .price-img-shoes{
     cursor: default;
 
+}
+
+.catalog-blog{
+  width: 50%;
+  height: 50%;
+  border-radius: 10px;
+  display: none;
+  background: var(--color-secundario);
+  color: var(--color-principal); 
+  opacity: 94%;
+}
+
+.show-catalog-blog{
+  display: block;
+}
+
+.tittle-blog{
+
+  color: var(--color-principal);
+
+}
+
+.close-blog{
+  color: var(--color-principal);
+  width: 93%;
+  display: flex;
+  justify-content: flex-end;
+  cursor: default;
+}
+
+.text-blog{
+  color: var(--color-principal);
+  width: 80%;
+  padding-top: 2rem;
+  text-align: justify;
 }
 

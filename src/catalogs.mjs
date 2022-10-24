@@ -4,6 +4,7 @@ import cardNumberValidation from './cardNumberValidation.mjs'
 const catalogs = {
   catalogClothes: document.getElementById('catalog-clothes-id'),
   catalogShoes: document.getElementById('catalog-shoes-id'),
+  
 
   getCatalogs: (category) => {
     return document.getElementById(`catalog-${category}-id`)
@@ -49,3 +50,22 @@ export default catalogs
 
 
 
+// actionEventContainers(data, srcImage, section, event){
+//   if (event.target.nodeName === "FIGURE" || event.target.nodeName === "FIGCAPTION" || event.target.nodeName === "IMG") {
+//     data.forEach((elem) => {
+//         if(elem.id === parseInt(event.target.dataset.id)){
+//             this.createCharacterContainer(elem, srcImage, section)
+//             this.hiddenDisplayList()
+//             this.hiddenHeader()
+//             this.hiddenFooter()
+//             this.displayDetailsCharacters()
+//         }
+//     })
+// }
+//  }
+
+//  eventContainers(data, srcImage, section){
+//     this.containerCharacters.addEventListener('click',(event)=>{
+//         this.actionEventContainers(data, srcImage, section, event)
+//     })
+//  }
